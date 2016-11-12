@@ -4,6 +4,14 @@ The boilerplate template for web applications by [Eviratec](http://www.eviratec.
 
 # Dependency archive
 
+**Size (MB):** 7.7
+**Size (B):** 8090988
+
+## Mirrors
+
+* [Sydney](https://s3-ap-southeast-2.amazonaws.com/ap-southeast-2.aws-s3.eviratec.net/resolved/dependencies/web-app.node_modules.win.10.64.tar.gz)
+* [Tokyo](https://s3-ap-northeast-1.amazonaws.com/ap-northeast-1.aws-s3.eviratec.net/resolved/dependencies/web-app.node_modules.win.10.64.tar.gz)
+* [Oregon](https://s3-us-west-2.amazonaws.com/us-west-2.aws-s3.eviratec.net/resolved/dependencies/web-app.node_modules.win.10.64.tar.gz)
 
 # License
 
