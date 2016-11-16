@@ -7,6 +7,12 @@
     "test": "grunt unit"
   },
   "config": {
+    "build": {
+      "srcFileNames": {
+        "APP_JS": "app.js",
+        "APP_CSS": "app.css"
+      }
+    },
     "localDev": {
       "hostname": "localhost",
       "port": 9901,

@@ -9,6 +9,14 @@ const PKG = require([mainModuleDir, 'package.json'].join(path.sep));
 const USE_MINIFED_VENDOR_LIB_SOURCES = PKG.config.minifyVendorLibs;
 const FE_VENDOR_LIBS = PKG.config.vendorLibs;
 
+const pkgBanner = `/**
+ * Eviratec Web App
+ * Copyright © 2016 Callan Peter Milne. All rights reserved.
+ * 
+ * <%= pkg.name %>@v<%= pkg.version %>
+ * Built on <%= grunt.template.today("yyyy-mm-dd") %>
+ */"use strict";\n`;
+
 module.exports = initConcatConfig;
 
 function initConcatConfig ($config) {
@@ -75,17 +83,22 @@ function initConcatConfig ($config) {
   /* concat:eviratecCss */
   $config['concat']['eviratecCss'] = {
     src: [
-      '<%= tmpBuildDir %>/app.css',
       '<%= tmpBuildDir %>/vendor.css',
+      '<%= tmpBuildDir %>/app.css',
     ],
     dest: '<%= tmpBuildDir %>/ewa.css',
   };
   
   /* concat:eviratecJs */
   $config['concat']['eviratecJs'] = {
+    options: {
+      banner: pkgBanner,
+      footer: '\n',
+      separator: '\n\n',
+    },
     src: [
-      '<%= tmpBuildDir %>/vendor.js',
       '<%= tmpBuildDir %>/ng.js',
+      '<%= tmpBuildDir %>/vendor.js',
     ],
     dest: '<%= tmpBuildDir %>/ewa.js',
   };

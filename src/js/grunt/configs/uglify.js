@@ -21,10 +21,10 @@ function initUglifyConfig ($config) {
     banner: pkgBanner,
   };
 
-  /* uglify:ngJs */
-  $config['uglify']['ngJs'] = {
+  /* uglify:eviratecJs */
+  $config['uglify']['eviratecJs'] = {
     files: {
-      '<%= tmpBuildDir %>/ng.js': ['<%= tmpBuildDir %>/ng.max.js'],
+      '<%= tmpBuildDir %>/ewa.js': ['<%= tmpBuildDir %>/ewa.max.js'],
     },
   };
 

@@ -2,6 +2,14 @@
 
 The boilerplate template for web applications by [Eviratec](http://www.eviratec.com).
 
+# Dev environment
+
+## Getting started
+
+1. Clone this repo: `$ git clone git@github.com:luminous-patterns/web-app`
+2. Install dependencies with npm: `$ npm install`
+3. Start the dev server: `$ grunt dev`
+
 # Dependency archive
 
 **Size (MB):** 7.7

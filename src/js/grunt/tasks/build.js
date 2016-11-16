@@ -21,7 +21,7 @@ function registerBuildTask (grunt) {
       'concat:eviratecCss',
       'concat:eviratecJs',
       'babel',
-      'uglify:ngJs',
+      // 'uglify:eviratecJs',
       'cssmin:appCss',
       'copy:buildFiles',
       'clean:tmp',

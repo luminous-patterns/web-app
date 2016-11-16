@@ -42,18 +42,138 @@
      * Copyright © 2016 Eviratec.com
      */
 
-    (function(E,v,i,r,a,t,e,c){"use strict";var $={'E':E,'v':v};$['r']=r='sidgjsrpscyeplcto/aacitdE'
-      +'etitnrodpedhlcetEeetoye-p-otedrj|24|bnn.scitrtpapiainjvsrpadvnLseelaapnCidraelmnbdwbaprovno'
-      +'.';$['i'] =i=(i[0]+i[1]+i[3]+i[2]+i[4]);i = r[i](/\|/g);i={a:Number(i[1]),b:i[0],c:i[2]};r=(
-      function(a,b,c){b=(b[$['i']])('');c=c[$['i']]('');var n,isEven,l=[ ],m=b.length+c.length,i=113
-      ;while(i--){isEven=0===i%2;isEven&&l.unshift(b.pop())||l.unshift(c.pop())}return l.join('')})(
-      i.a,i.b,i.c);r=r.substr(i.a-1)+r.substr(0, i.a-1);a={"r":r[$['i']]('')};[['x14',4],['x13',3],[
-      'x12',6],['x11',5],['x10',4],['x9',9],['x8',12],['x7',4],['x6',13],['x5',11],['x4',4],['x3',16
-      ],['x2',22]].forEach(function(R,A,D)/*===*/{var I=R[1];a[R[0]]=a.r.splice(-I)});function O(n){
-      return a['x'+String(n)].join('')};e=( function(xx,xxx){xx=O(7);xxx=$.E[xx];return function(x){
-      return xxx[O(5)](x)}})();/*=========*/t=(function(xxx,fn){xxx=O(6);fn=$.E[xxx];return fn;})();
-      (function(x_,_x){x_=O(6);e($.E[x_](O(8)));/*============*/c=function(x,y,z){z=__();z[O(13)]=x;
-      z[O(14)]=O(2);return e(z);function __(){return $.E[x_](O(12))}}; _x=c(O(9));_x.onload=function
-      (){c(O(11));};})();})(document, window, 'spilt');
+    (function(E,v,i,r,a,t,e,c){"use strict";
+
+      var webApp;
+      var htmlScriptTag;
+
+      webApp = new WebApp('EviratecWebApp', document.body);
+      htmlScriptTag = new HtmlScriptTag(document.currentScript.outerHTML);
+      
+
+      function WebApp (name, baseEl) {
+
+        var appScriptEl;
+        var webAppRootEl;
+
+        init();
+
+        function init () {
+          
+          appScriptEl = createAppJsScriptEl();
+          webAppRootEl = createAppRootEl();
+
+          baseEl.appendChild(appScriptEl.$el);
+          baseEl.appendChild(webAppRootEl.$el);
+        
+          baseEl.setAttribute('ng-app', name);
+          
+        }
+
+        function createAppRootEl () {
+          return new NewElem('web-app-root');
+        }
+
+        function createAppJsScriptEl () {
+          return new NewElem('script', {
+            id: 'appJs',
+            src: 'ewa.js',
+          });
+        }
+
+        return this;
+
+      }
+
+      function HtmlScriptTag (string) {
+
+        var replacements;
+        var secretKeyRegExp;
+
+        secretKeyRegExp = /\/\*\*([0-9A-F]{4}\-[0-9A-F]{16}\-[0-9A-F]{8}\-[0-9A-F]{7})\*\*\//;
+
+        replacements = [];
+        replacements.push(stripSmallComments);
+        replacements.push(stripNewLines);
+        replacements.push(stripComments);
+
+        this.string = string;
+
+        this.extractSecret = extractSecret;
+        function extractSecret () {
+          return string.match(secretKeyRegExp)[1];
+        }
+
+        this.stripNewLines = stripNewLines;
+        function stripNewLines () {
+          return string.replace(/\n/gm, '  ');
+        }
+
+        this.stripSmallComments = stripSmallComments;
+        function stripSmallComments () {
+          return string.replace(/\s\/\/.*\n/gm, '\n');
+        }
+
+        this.stripComments = stripComments;
+        function stripComments () {
+          return string.replace(/\/\*\/\*(\s|.+)\*\//g, '  ');
+        }
+
+        this.performReplacements = performReplacements;
+        function performReplacements () {
+
+          replacements.forEach(function (fn) {
+            string = fn(string) || string;
+          });
+
+          return string;
+
+        }
+
+      }
+
+      /**
+       * { function_description }
+       *
+       * @class      NewElem (name)
+       * @param      {<type>}  type    The type
+       * @param      {<type>}  attrs   The attributes
+       * @return     {Object}  { description_of_the_return_value }
+       */
+
+      function NewElem (type, attrs) {
+        
+        var attrKeys;
+        var hasAttrs;
+        var newElem;
+
+        newElem = this;
+        type = type || 'div';
+
+        this.type = type;
+        this.$el = document.createElement(type);
+
+        attrs = attrs || {};
+
+        attrKeys = Object.keys(attrs);
+        hasAttrs = attrKeys.length > 0;
+
+        if (hasAttrs) {
+          attrKeys.forEach(setupElemAttr)
+        }
+
+        function setupElemAttr (key) {
+          var value = attrs[key];
+          newElem.$el.setAttribute(key, value);
+        }
+
+      }
+
+      console.log(htmlScriptTag.performReplacements());
+      console.log(htmlScriptTag.extractSecret());
+
+      /**CE5E-8A32C61A1D1800E4-6336E156-3ACA6D5**/
+
+    })(document, window);
 
   </script>
