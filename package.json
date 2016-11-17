@@ -18,9 +18,10 @@
       "port": 9901,
       "liveReloadPort": 35730
     },
-    "minifyVendorLibs": true,
+    "minifyVendorLibs": false,
     "vendorLibs": [
       "angular",
+      "angular-uuid",
       "angular-aria",
       "angular-animate",
       "angular-environment-config",
@@ -28,8 +29,7 @@
       "angular-messages",
       "angular-ui-router",
       "eventemitter3",
-      "node-uuid",
-      "angular-uuid"
+      "node-uuid"
     ]
   },
   "author": "Callan Milne <callan.milne@eviratec.com.au>",

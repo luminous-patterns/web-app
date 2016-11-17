@@ -13,18 +13,17 @@ function registerBuildTask (grunt) {
       'copy:otherCss',
       'copy:es6SrcToBuildTmp',
       'ngtemplates:EviratecWebApp',
-      'concat:vendorCss',
-      'concat:vendorJs',
       'concat:appCss',
-      'concat:ngJsSrc',
-      'concat:ngJs',
+      'concat:vendorCss',
+      'concat:ngEs6Src',
+      'concat:ngEs6',
+      'babel',
+      'concat:vendorJs',
       'concat:eviratecCss',
       'concat:eviratecJs',
-      'babel',
       // 'uglify:eviratecJs',
       'cssmin:appCss',
       'copy:buildFiles',
-      'clean:tmp',
     ]
   );
 

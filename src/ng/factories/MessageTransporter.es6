@@ -1,7 +1,7 @@
 app.factory('MessageTransporter', MessageTransporterFactory);
 
-MessageTransporterFactory.$inject = ['$http', '$logger'];
-function MessageTransporterFactory (  $http,   $logger) {
+MessageTransporterFactory.$inject = ['EventEmitter', '$http', '$logger'];
+function MessageTransporterFactory (  EventEmitter,   $http,   $logger) {
 
   const DEFAULT_READ_VIA = 'http://localhost/';
   const DEFAULT_WRITE_VIA = 'http://localhost/';

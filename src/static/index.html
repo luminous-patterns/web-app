@@ -2,14 +2,6 @@
 <html>
 <head>
 
-  <base href="/">
-
-  <title>Eviratec Web Application</title>
-
-  <meta name="dcterms.rightsHolder" content="MILNE, CALLAN PETER">
-  <meta name="dcterms.rights" content="All rights reserved">
-  <meta name="dcterms.dateCopyrighted" content="2016">
-
   <!-- ewaLoaderCss@v1.0.0 © 2016 Eviratec.com -->
   <style id="ewaLoaderCss" type="text/css">
 
@@ -23,16 +15,16 @@
 
   </style>
 
+  <base href="/">
+
+  <title>Eviratec Web Application</title>
+
+  <meta name="dcterms.rightsHolder" content="MILNE, CALLAN PETER">
+  <meta name="dcterms.rights" content="All rights reserved">
+  <meta name="dcterms.dateCopyrighted" content="2016">
+
 </head>
-<body ng-app="EviratecWebApp">
-
-  <!-- Eviratec Web Application -->
-
-  <!-- Copyright © 2016 CALLAN PETER MILNE -->
-  <!-- All rights reserved -->
-
-  <!-- Eviratec Logo Copyright © 2016 Eviratec.com -->
-  <img id="ewaLoaderLogo" src="images/logov7c-dist.png">
+<body>
 
   <!-- ewaLoaderJs@v1.0.0 © 2016 Eviratec.com -->
   <script id="ewaLoaderJs">
@@ -44,12 +36,16 @@
 
     (function(E,v,i,r,a,t,e,c){"use strict";
 
+      var window;
+      var document;
       var webApp;
       var htmlScriptTag;
 
+      window = E;
+      document = window.document;
+
       webApp = new WebApp('EviratecWebApp', document.body);
       htmlScriptTag = new HtmlScriptTag(document.currentScript.outerHTML);
-      
 
       function WebApp (name, baseEl) {
 
@@ -59,14 +55,16 @@
         init();
 
         function init () {
-          
-          appScriptEl = createAppJsScriptEl();
-          webAppRootEl = createAppRootEl();
-
-          baseEl.appendChild(appScriptEl.$el);
-          baseEl.appendChild(webAppRootEl.$el);
         
           baseEl.setAttribute('ng-app', name);
+
+          appScriptEl = createAppJsScriptEl();
+          appScriptEl.$el.addEventListener('load', function () {
+            webAppRootEl = createAppRootEl();
+            baseEl.appendChild(webAppRootEl.$el);
+          });
+          baseEl.appendChild(appScriptEl.$el);
+
           
         }
 
@@ -81,8 +79,6 @@
           });
         }
 
-        return this;
-
       }
 
       function HtmlScriptTag (string) {
@@ -93,9 +89,9 @@
         secretKeyRegExp = /\/\*\*([0-9A-F]{4}\-[0-9A-F]{16}\-[0-9A-F]{8}\-[0-9A-F]{7})\*\*\//;
 
         replacements = [];
-        replacements.push(stripSmallComments);
-        replacements.push(stripNewLines);
-        replacements.push(stripComments);
+        // replacements.push(stripSmallComments);
+        // replacements.push(stripNewLines);
+        // replacements.push(stripComments);
 
         this.string = string;
 
@@ -104,31 +100,31 @@
           return string.match(secretKeyRegExp)[1];
         }
 
-        this.stripNewLines = stripNewLines;
-        function stripNewLines () {
-          return string.replace(/\n/gm, '  ');
-        }
+        // this.stripNewLines = stripNewLines;
+        // function stripNewLines () {
+        //   return string.replace(/\n/gm, '  ');
+        // }
 
-        this.stripSmallComments = stripSmallComments;
-        function stripSmallComments () {
-          return string.replace(/\s\/\/.*\n/gm, '\n');
-        }
+        // this.stripSmallComments = stripSmallComments;
+        // function stripSmallComments () {
+        //   return string.replace(/\s\/\/.*\n/gm, '\n');
+        // }
 
-        this.stripComments = stripComments;
-        function stripComments () {
-          return string.replace(/\/\*\/\*(\s|.+)\*\//g, '  ');
-        }
+        // this.stripComments = stripComments;
+        // function stripComments () {
+        //   return string.replace(/\/\*\/\*(\s|.+)\*\//g, '  ');
+        // }
 
-        this.performReplacements = performReplacements;
-        function performReplacements () {
+        // this.performReplacements = performReplacements;
+        // function performReplacements (string) {
 
-          replacements.forEach(function (fn) {
-            string = fn(string) || string;
-          });
+        //   replacements.forEach(function (fn) {
+        //     fn();
+        //   });
 
-          return string;
+        //   return string;
 
-        }
+        // }
 
       }
 
@@ -169,11 +165,19 @@
 
       }
 
-      console.log(htmlScriptTag.performReplacements());
+      // console.log(htmlScriptTag.performReplacements());
       console.log(htmlScriptTag.extractSecret());
 
       /**CE5E-8A32C61A1D1800E4-6336E156-3ACA6D5**/
 
-    })(document, window);
+    })(window);
 
   </script>
+
+  <!-- Eviratec Web Application -->
+
+  <!-- Copyright © 2016 CALLAN PETER MILNE -->
+  <!-- All rights reserved -->
+
+  <!-- Eviratec Logo Copyright © 2016 Eviratec.com -->
+  <img id="ewaLoaderLogo" src="images/logov7c-dist.png">

@@ -19,7 +19,7 @@ function initBabelConfig ($config) {
           'ng.es6',
         ],
         dest: '<%= tmpBuildDir %>/',
-        ext: '.max.js',
+        ext: '.js',
       }],
     },
   };

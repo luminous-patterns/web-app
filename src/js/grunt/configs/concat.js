@@ -15,7 +15,8 @@ const pkgBanner = `/**
  * 
  * <%= pkg.name %>@v<%= pkg.version %>
  * Built on <%= grunt.template.today("yyyy-mm-dd") %>
- */"use strict";\n`;
+ */"use strict";
+(function(){"use strict";\n`;
 
 module.exports = initConcatConfig;
 
@@ -41,24 +42,24 @@ function initConcatConfig ($config) {
   $config['concat']['vendorJs'] = {
     src: VendorLib.jsGlobsForAll(FE_VENDOR_LIBS),
     dest: '<%= tmpBuildDir %>/vendor.js',
+    options: {
+      // banner: '(function (window) {\n\n',
+      // footer: '})(window);\n',
+      // separator: '})(window);\n\n(function (window) {\n\n',
+    },
   };
 
-  /* concat:ngJsSrc */
-  $config['concat']['ngJsSrc'] = {
+  /* concat:ngEs6Src */
+  $config['concat']['ngEs6Src'] = {
     files: {
       '<%= tmpBuildDir %>/srcFiles.es6': [
         '<%= tmpBuildDir %>/srcFiles/ng/0/**/*.es6',
       ],
     },
-    options: {
-      banner: '(function (angular, app, window) {\n\n',
-      footer: '})(angular, app, window);\n',
-      separator: '})(angular, app, window);\n\n(function (angular, app, window) {\n\n',
-    },
   };
 
-  /* concat:ngJs */
-  $config['concat']['ngJs'] = {
+  /* concat:ngEs6 */
+  $config['concat']['ngEs6'] = {
     files: {
       '<%= tmpBuildDir %>/ng.es6': [
         '<%= tmpBuildDir %>/srcFiles/ng/module.es6',
@@ -67,8 +68,8 @@ function initConcatConfig ($config) {
       ],
     },
     options: {
-      // banner: '(function (angular, window) {\n\n',
-      // footer: '})(angular, window);\n',
+      // banner: '(function (angular) {\n\n',
+      // footer: '})(angular);\n',
     },
   };
   
@@ -93,12 +94,12 @@ function initConcatConfig ($config) {
   $config['concat']['eviratecJs'] = {
     options: {
       banner: pkgBanner,
-      footer: '\n',
-      separator: '\n\n',
+      footer: '})();\n\n\n',
+      // separator: '})(angular);\n',
     },
     src: [
-      '<%= tmpBuildDir %>/ng.js',
       '<%= tmpBuildDir %>/vendor.js',
+      '<%= tmpBuildDir %>/ng.js',
     ],
     dest: '<%= tmpBuildDir %>/ewa.js',
   };

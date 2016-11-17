@@ -29,8 +29,14 @@ function initCopyConfig ($config) {
         ],
         dest: '<%= outDir %>/',
       }, {
+        src: '<%= tmpBuildDir %>/ng.js',
+        dest: '<%= outDir %>/ng.js',
+      }, {
         src: '<%= tmpBuildDir %>/ewa.js',
         dest: '<%= outDir %>/ewa.js',
+      }, {
+        src: '<%= tmpBuildDir %>/ewa.css',
+        dest: '<%= outDir %>/ewa.css',
       }, {
         src: '<%= tmpBuildDir %>/app.css',
         dest: '<%= outDir %>/app.css',
