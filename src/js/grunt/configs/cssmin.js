@@ -18,13 +18,6 @@ function initCssminConfig ($config) {
     banner: pkgBanner,
   };
 
-  /* cssmin:appCss */
-  $config['cssmin']['appCss'] = {
-    files: {
-      '<%= tmpBuildDir %>/app.css': ['<%= tmpBuildDir %>/app.max.css'],
-    },
-  };
-
   /* cssmin:eviratecCss */
   $config['cssmin']['eviratecCss'] = {
     files: {
