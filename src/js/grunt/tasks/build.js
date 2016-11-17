@@ -19,10 +19,12 @@ function registerBuildTask (grunt) {
       'concat:ngEs6',
       'babel',
       'concat:vendorJs',
+      // 'cssmin:appCss',
       'concat:eviratecCss',
       'concat:eviratecJs',
-      // 'uglify:eviratecJs',
-      'cssmin:appCss',
+      'uglify:eviratecJs',
+      'cssmin:eviratecCss',
+      'clean:build',
       'copy:buildFiles',
     ]
   );

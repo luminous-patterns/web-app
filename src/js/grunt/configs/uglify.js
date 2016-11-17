@@ -1,7 +1,7 @@
 'use strict';
 
 const pkgBanner = `/**
- * Eviratec Web App
+ * Eviratec Web App JS
  * Copyright © 2016 Callan Peter Milne. All rights reserved.
  * 
  * <%= pkg.name %>@v<%= pkg.version %>
@@ -24,7 +24,7 @@ function initUglifyConfig ($config) {
   /* uglify:eviratecJs */
   $config['uglify']['eviratecJs'] = {
     files: {
-      '<%= tmpBuildDir %>/ewa.js': ['<%= tmpBuildDir %>/ewa.max.js'],
+      '<%= tmpBuildDir %>/ewa.min.js': ['<%= tmpBuildDir %>/ewa.js'],
     },
   };
 

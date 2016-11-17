@@ -28,21 +28,27 @@ function initCopyConfig ($config) {
           'js/**/*.js',
         ],
         dest: '<%= outDir %>/',
-      }, {
-        src: '<%= tmpBuildDir %>/ng.js',
-        dest: '<%= outDir %>/ng.js',
+      // }, {
+      //   src: '<%= tmpBuildDir %>/ng.js',
+      //   dest: '<%= outDir %>/ng.js',
       }, {
         src: '<%= tmpBuildDir %>/ewa.js',
         dest: '<%= outDir %>/ewa.js',
       }, {
+        src: '<%= tmpBuildDir %>/ewa.min.js',
+        dest: '<%= outDir %>/ewa.min.js',
+      }, {
         src: '<%= tmpBuildDir %>/ewa.css',
         dest: '<%= outDir %>/ewa.css',
       }, {
-        src: '<%= tmpBuildDir %>/app.css',
-        dest: '<%= outDir %>/app.css',
-      }, {
-        src: '<%= tmpBuildDir %>/vendor.css',
-        dest: '<%= outDir %>/vendor.css',
+        src: '<%= tmpBuildDir %>/ewa.min.css',
+        dest: '<%= outDir %>/ewa.min.css',
+      // }, {
+      //   src: '<%= tmpBuildDir %>/app.css',
+      //   dest: '<%= outDir %>/app.css',
+      // }, {
+      //   src: '<%= tmpBuildDir %>/vendor.css',
+      //   dest: '<%= outDir %>/vendor.css',
       }, {
         expand: true,
         cwd: '<%= staticDir %>',

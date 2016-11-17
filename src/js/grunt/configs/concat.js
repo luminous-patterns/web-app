@@ -9,13 +9,15 @@ const PKG = require([mainModuleDir, 'package.json'].join(path.sep));
 const USE_MINIFED_VENDOR_LIB_SOURCES = PKG.config.minifyVendorLibs;
 const FE_VENDOR_LIBS = PKG.config.vendorLibs;
 
-const pkgBanner = `/**
+const cssBanner = `/**
  * Eviratec Web App
  * Copyright © 2016 Callan Peter Milne. All rights reserved.
  * 
  * <%= pkg.name %>@v<%= pkg.version %>
  * Built on <%= grunt.template.today("yyyy-mm-dd") %>
- */"use strict";
+ */\n`;
+
+const pkgBanner = `${cssBanner}"use strict";
 (function(){"use strict";\n`;
 
 module.exports = initConcatConfig;
@@ -43,9 +45,7 @@ function initConcatConfig ($config) {
     src: VendorLib.jsGlobsForAll(FE_VENDOR_LIBS),
     dest: '<%= tmpBuildDir %>/vendor.js',
     options: {
-      // banner: '(function (window) {\n\n',
-      // footer: '})(window);\n',
-      // separator: '})(window);\n\n(function (window) {\n\n',
+
     },
   };
 
@@ -68,8 +68,7 @@ function initConcatConfig ($config) {
       ],
     },
     options: {
-      // banner: '(function (angular) {\n\n',
-      // footer: '})(angular);\n',
+
     },
   };
   
@@ -78,11 +77,15 @@ function initConcatConfig ($config) {
     src: [
       '<%= srcDir %>/css/**/*.css',
     ],
-    dest: '<%= tmpBuildDir %>/app.max.css',
+    dest: '<%= tmpBuildDir %>/app.css',
   };
   
   /* concat:eviratecCss */
   $config['concat']['eviratecCss'] = {
+    options: {
+      banner: cssBanner,
+      footer: '\n',
+    },
     src: [
       '<%= tmpBuildDir %>/vendor.css',
       '<%= tmpBuildDir %>/app.css',
@@ -95,7 +98,6 @@ function initConcatConfig ($config) {
     options: {
       banner: pkgBanner,
       footer: '})();\n\n\n',
-      // separator: '})(angular);\n',
     },
     src: [
       '<%= tmpBuildDir %>/vendor.js',

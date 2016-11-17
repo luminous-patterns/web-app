@@ -75,7 +75,7 @@
         function createAppJsScriptEl () {
           return new NewElem('script', {
             id: 'appJs',
-            src: 'ewa.js',
+            src: 'ewa.min.js',
           });
         }
 
@@ -89,9 +89,6 @@
         secretKeyRegExp = /\/\*\*([0-9A-F]{4}\-[0-9A-F]{16}\-[0-9A-F]{8}\-[0-9A-F]{7})\*\*\//;
 
         replacements = [];
-        // replacements.push(stripSmallComments);
-        // replacements.push(stripNewLines);
-        // replacements.push(stripComments);
 
         this.string = string;
 
@@ -100,42 +97,7 @@
           return string.match(secretKeyRegExp)[1];
         }
 
-        // this.stripNewLines = stripNewLines;
-        // function stripNewLines () {
-        //   return string.replace(/\n/gm, '  ');
-        // }
-
-        // this.stripSmallComments = stripSmallComments;
-        // function stripSmallComments () {
-        //   return string.replace(/\s\/\/.*\n/gm, '\n');
-        // }
-
-        // this.stripComments = stripComments;
-        // function stripComments () {
-        //   return string.replace(/\/\*\/\*(\s|.+)\*\//g, '  ');
-        // }
-
-        // this.performReplacements = performReplacements;
-        // function performReplacements (string) {
-
-        //   replacements.forEach(function (fn) {
-        //     fn();
-        //   });
-
-        //   return string;
-
-        // }
-
       }
-
-      /**
-       * { function_description }
-       *
-       * @class      NewElem (name)
-       * @param      {<type>}  type    The type
-       * @param      {<type>}  attrs   The attributes
-       * @return     {Object}  { description_of_the_return_value }
-       */
 
       function NewElem (type, attrs) {
         
@@ -165,7 +127,6 @@
 
       }
 
-      // console.log(htmlScriptTag.performReplacements());
       console.log(htmlScriptTag.extractSecret());
 
       /**CE5E-8A32C61A1D1800E4-6336E156-3ACA6D5**/

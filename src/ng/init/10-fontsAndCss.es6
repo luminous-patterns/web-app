@@ -3,8 +3,8 @@ app.run(initStyleSheets);
 function initStyleSheets () {
 
   let styleSheets = [
-    'app.css',
-    'vendor.css',
+    'ewa.min.css',
+    // 'vendor.css',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
   ];
 

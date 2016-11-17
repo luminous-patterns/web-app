@@ -25,4 +25,11 @@ function initCssminConfig ($config) {
     },
   };
 
+  /* cssmin:eviratecCss */
+  $config['cssmin']['eviratecCss'] = {
+    files: {
+      '<%= tmpBuildDir %>/ewa.min.css': ['<%= tmpBuildDir %>/ewa.css'],
+    },
+  };
+
 }
