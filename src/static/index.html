@@ -39,13 +39,11 @@
       var window;
       var document;
       var webApp;
-      var htmlScriptTag;
 
       window = E;
       document = window.document;
 
       webApp = new WebApp('EviratecWebApp', document.body);
-      htmlScriptTag = new HtmlScriptTag(document.currentScript.outerHTML);
 
       function WebApp (name, baseEl) {
 
@@ -81,24 +79,6 @@
 
       }
 
-      function HtmlScriptTag (string) {
-
-        var replacements;
-        var secretKeyRegExp;
-
-        secretKeyRegExp = /\/\*\*([0-9A-F]{4}\-[0-9A-F]{16}\-[0-9A-F]{8}\-[0-9A-F]{7})\*\*\//;
-
-        replacements = [];
-
-        this.string = string;
-
-        this.extractSecret = extractSecret;
-        function extractSecret () {
-          return string.match(secretKeyRegExp)[1];
-        }
-
-      }
-
       function NewElem (type, attrs) {
         
         var attrKeys;
@@ -121,15 +101,12 @@
         }
 
         function setupElemAttr (key) {
-          var value = attrs[key];
+          var value;
+          value = attrs[key];
           newElem.$el.setAttribute(key, value);
         }
 
       }
-
-      console.log(htmlScriptTag.extractSecret());
-
-      /**CE5E-8A32C61A1D1800E4-6336E156-3ACA6D5**/
 
     })(window);
 
