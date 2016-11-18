@@ -1,6 +1,7 @@
 html, body {
   font-weight: 300;
   background: transparent url("images/bg-repeat.jpg") repeat;
+  font-family: Roboto, "Roboto", sans-serif;
 }
 web-app-root {
   height: 100%;
@@ -8,6 +9,12 @@ web-app-root {
 }
 md-tab-content {
   padding-top: 24px;
+}
+.contact-form-container {
+  background-color: #efefef;
+  border-radius: 3px;
+  padding: 16px 24px;
+  width: 500px;
 }
 .web-app-container {
   width: 580px;
@@ -42,18 +49,32 @@ md-tab-content {
   font-size: 22px;
   font-weight: 200;
 }
-.web-app-header .logo {
-  height: 100px;
-  width: 220px;
-  background: transparent url(images/logo-web.png) no-repeat;
-  background-size: 100%;
-  background-position: center center;
-  margin-left: 22px;
+
+web-app-root md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
+  background-color: rgba(22,22,22,1);
 }
+md-nav-bar .md-nav-bar {
+  border-bottom: none;
+}
+md-nav-bar .md-nav-bar .md-nav-item button span._md-nav-button-text {
+  font-weight: 300;
+}
+
+h2 span.logo {
+  height: 68px;
+  width: 158px;
+  background: url(images/logo-web.png) -8px 3px no-repeat;
+  background-size: 100%;
+  text-indent: 220px;
+  overflow: hidden;
+  display: inline-block;
+}
+
 web-app-root .contact-form-content button.md-raised.md-primary {
   color: rgba(255,255,255,1);
   /*background-color: #0091EA;*/
 }
+
 h2.md-headline {
   color: rgba(255,255,255,0.57);
   font-weight: 200;
@@ -61,4 +82,9 @@ h2.md-headline {
 }
 h2.md-headline span {
   font-weight: 300;
+}
+md-content#stageContent {
+  background: url(images/green-bg-v1.jpg);
+  background-size: cover;
+  padding: 0 18px 18px;
 }

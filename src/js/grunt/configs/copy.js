@@ -11,6 +11,7 @@ const concatPriorities = {
   factories:      concatPriority(50, 'factory'),
   services:       concatPriority(50, 'service'),
   directives:     concatPriority(60, 'directive'),
+  components:     concatPriority(65, 'component'),
   controllers:    concatPriority(70, 'controller'),
 };
 

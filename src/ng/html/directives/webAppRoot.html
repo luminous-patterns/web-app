@@ -1,70 +1,33 @@
 <div layout="column"
-  layout-align="center center"
   layout-fill>
 
-  <div>
+  <md-toolbar class="md-hue-2">
 
-    <div class="web-app-header">
+    <div class="md-toolbar-tools md-whiteframe-1dp">
 
-      <div class="web-app-header-container"
-        layout="row"
-        layout-align="center start">
+      <!-- <md-button class="md-icon-button" aria-label="Main menu">
+        <md-icon class="material-icons">menu</md-icon>
+      </md-button> -->
 
-        <div style="width: 600px;"
-          layout="row"
-          layout-align="start center">
-          <div class="logo"></div>
-          <div class="tagline" flex>
-            Apps, APIs, and data
-          </div>
-        </div>
+      <h2>
+        <span class="logo">Eviratec</span>
+      </h2>
 
-      </div>
+      <span flex></span>
 
-    </div>
-
-    <div flex layout layout-align="center center">
-    
-      <div class="web-app-container">
-
-        <md-tabs md-dynamic-height>
-          
-          <md-tab label="Intro">
-
-          </md-tab>
-          
-          <md-tab label="Services">
-
-          </md-tab>
-          
-          <md-tab label="Contact us">
-
-            <h2 class="md-headline">
-              <span>Need custom software?</span>
-              &ndash;
-              Contact us
-            </h2>
-
-            <div contact-form
-              layout-fill>
-            </div>
-            
-          </md-tab>
-
-        </md-tabs>
-
-      </div>
+      <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-href="/"><md-icon class="material-icons">home</md-icon></md-nav-item>
+        <md-nav-item md-nav-href="/application-development">What we do</md-nav-item>
+        <md-nav-item md-nav-href="/contact-us">Contact us</md-nav-item>
+      </md-nav-bar>
 
     </div>
 
-    <div class="web-app-footer">
-      <div class="web-app-footer-container"
-        layout="row"
-        layout-align="center center">
-        <span class="copyright">{{ $webAppRoot.copyright }}</span>
-      </div>
-    </div>
+  </md-toolbar>
 
-  </div>
+  <md-content id="stageContent"
+    ui-view
+    flex>
+  </md-content>
 
 </div>

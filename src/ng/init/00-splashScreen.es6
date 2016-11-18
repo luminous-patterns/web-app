@@ -5,6 +5,7 @@ function splashScreenIntro () {
   let loadingOverlayEl = document.createElement('div');
   
   loadingOverlayEl.id = 'loadingOverlay';
+  loadingOverlayEl.style = 'opacity:1;';
   loadingOverlayEl.innerHTML = 
 `<div class="status-indicator-wrapper">
   <div class="lhs-valign-helper"></div>
@@ -21,7 +22,7 @@ function splashScreenIntro () {
 
   let statusIndicatorTransitionSteps = [
     () => { showStatusIndicator() },
-    () => { setTimeout(() => { hideStatusIndicator() }, 2222) },
+    () => { setTimeout(() => { hideStatusIndicator() }, 1388) },
     () => { hideLogoEl(); hideSplashScreen() },
   ];
 
@@ -47,7 +48,23 @@ function splashScreenIntro () {
   }
 
   function hideSplashScreen () {
-    document.body.removeChild(loadingOverlayEl);
+
+    onNextTick(() => {
+
+      loadingOverlayEl.addEventListener('transitionend', () => {
+        document.body.removeChild(loadingOverlayEl);
+      });
+
+      onNextTick(() => {
+        loadingOverlayEl.setAttribute('style', 'opacity: 0;');
+      });
+
+    });
+
+  }
+
+  function onNextTick (fn) {
+    setTimeout(fn, 0);
   }
 
   function showStatusIndicator () {

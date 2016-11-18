@@ -1,7 +1,7 @@
 app.controller('WebAppRootViewController', webAppRootViewController);
 
-webAppRootViewController.$inject = ['$scope', '$animate', '$appEnvironment'];
-function webAppRootViewController (  $scope,   $animate,   $appEnvironment) {
+webAppRootViewController.$inject = ['$scope', '$animate', '$appEnvironment', '$window'];
+function webAppRootViewController (  $scope,   $animate,   $appEnvironment,   $window) {
 
   class WebAppRootViewController {
 
@@ -13,6 +13,10 @@ function webAppRootViewController (  $scope,   $animate,   $appEnvironment) {
 
       this.copyright = $appEnvironment.config.copyright;
       
+    }
+
+    goto (location) {
+      $window.location.pathname = location;
     }
 
   }
